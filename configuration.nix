@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <home-manager/nixos>
       ./hardware-configuration.nix
     ];
 
@@ -75,6 +76,9 @@
   users.users.fgdou= {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
+  home-manager.users.fgdou = { pkg, ... }: {
+    home.stateVersion = "24.05";
   };
 
   # List packages installed in system profile. To search, run:
